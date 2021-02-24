@@ -7,31 +7,31 @@
 version=$( youtube-dl --version )
 
 function forLinux {
-    checkDistro=$( cat /etc/*-release | grep DISTRIB_ID=Ubuntu )
-    if [ $checkDistro ]
-    then
-        sudo apt install youtube-dl
-    else
+   # checkDistro=$( cat /etc/*-release | grep DISTRIB_ID=Ubuntu )
+   # if [ $checkDistro ]
+   # then
+   #     sudo apt install youtube-dl
+   # else
         wget https://yt-dl.org/downloads/latest/youtube-dl && chmod u+rx youtube-dl
 
         mkdir ~/ydl && mv ./youtube-dl ~/ydl/.
-        echo "PATH=$PATH:$HOME/ydl" >> ~/.bashrc && source ~/.bashrc
+        echo "PATH=$PATH:$HOME/ydl" >> ~/.bashrc && . ~/.bashrc
 
-    fi    
+   # fi    
 }
 
 function forMac {
-    checkForBrew=$( brew help )
-    if [ $checkForBrew ]
-    then
-        brew install youtube-dl
-    else
+   # checkForBrew=$( brew help )
+   # if [ $checkForBrew ]
+   # then
+   #     brew install youtube-dl
+   # else
         wget https://yt-dl.org/downloads/latest/youtube-dl && chmod u+rx youtube-dl
 
         mkdir ~/ydl && mv ./youtube-dl ~/ydl/.
-        echo "PATH=$PATH:$HOME/ydl" >> ~/.bashrc && source ~/.bashrc
+        echo "PATH=$PATH:$HOME/ydl" >> ~/.bashrc && . ~/.bashrc
 
-    fi    
+   # fi    
 }
 
 function forWindows {
