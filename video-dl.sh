@@ -1,17 +1,20 @@
 #!/bin/bash
 
 # A script to install youtube-dl and download online videos on major operating systems
-# Amarachi S. Aso 22/2/2021
+# Author: Amarachi S. Aso 
+# Date: 22/02/2021
+# Last updated on 22/03/2021 
 
 # Check version of youtube-dl to know if it is installed
 version=$( youtube-dl --version )
 
 function forLinux {
-   # checkDistro=$( cat /etc/*-release | grep DISTRIB_ID=Ubuntu )
-   # if [ $checkDistro ]
-   # then
-   #     sudo apt install youtube-dl
-   # else
+    checkDistro=$( cat /etc/*-release | grep DISTRIB_ID=Ubuntu )
+    if [ $checkDistro ]
+    then
+        sudo apt-get update
+        sudo apt install youtube-dl
+    else
         wget https://yt-dl.org/downloads/latest/youtube-dl && chmod u+rx youtube-dl
 
         mkdir ~/ydl && mv ./youtube-dl ~/ydl/.
